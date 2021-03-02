@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: Blog_api_rest_development
+
+test:
+  <<: *default
+  database: Blog_api_rest_test
+
+production:
+  <<: *default
+  database: Blog_api_rest_production
+
